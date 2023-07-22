@@ -1,30 +1,44 @@
 import React, { useState } from 'react';
-import "./Home.css"
+import './Home.css';                                                     
 
-const UploadPDFs = () => {
+
+const FileUploader = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [successMessage, setSuccessMessage] = useState('');
+  const [uploadMessage, setUploadMessage] = useState('');
 
-  const handleFileUpload = (event) => {
-    const files = Array.from(event.target.files);
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
     setSelectedFiles(files);
   };
 
-  const handleSubmit = () => {
-    // Perform any necessary actions with the uploaded files
-    // For this example, we'll simply display a success message
-    setSuccessMessage('Files successfully uploaded!');
+  const handleUpload = () => {
+    if (selectedFiles.length === 0) {
+      setUploadMessage('No files selected.');
+    } else {
+      setUploadMessage(`${selectedFiles.length} files uploaded successfully.`);
+    }
   };
 
   return (
     <div className="container">
       <div className="box">
-        <input type="file" multiple onChange={handleFileUpload} />
-        <button onClick={handleSubmit}>Upload</button>
+        <label htmlFor="file-upload" className="select-files">
+          Select Files
+        </label>
+        <input
+          type="file"
+          id="file-upload"
+          multiple
+          onChange={handleFileChange}
+          style={{ display: 'none' }}
+        />
+        <br />
+        <button onClick={handleUpload}>Upload</button>
       </div>
-      {successMessage && (
-        <div className="success-message">
-          <h3>{successMessage}</h3>
+      {uploadMessage && <p>{uploadMessage}</p>}
+      {selectedFiles.length > 0 && (
+        <div>
+          <h3>Files Uploaded:</h3>
           <ul>
             {selectedFiles.map((file, index) => (
               <li key={index}>{file.name}</li>
@@ -36,4 +50,4 @@ const UploadPDFs = () => {
   );
 };
 
-export default UploadPDFs;
+export default FileUploader;

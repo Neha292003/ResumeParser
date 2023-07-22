@@ -1,65 +1,51 @@
-/* Basic styles for the container */
+/* Home.css */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f0f0f0;
-  }
-  
-  /* Styles for the box containing the file input and button */
-  .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  /* Styles for the file input */
-  input[type="file"] {
-    width: 200px;
-    height: auto;
-    
-  }
-  
-  /* Custom button style for the file input */
-  label {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  /* Styles for the success message container */
-  .success-message {
-    margin-top: 20px;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  /* Styles for the list of selected files */
-  .success-message ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .success-message li {
-    margin-bottom: 5px;
-  }
-  
-  /* Optional style for the "Upload" button */
-  button {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-  }
-  
+  text-align: center;
+}
+
+.box {
+  border: 1px solid #ccc;
+  padding: 2rem; /* Increase padding to create more space */
+  width: 40rem; /* Increase the size of the box */
+  max-width: 90%; /* Limit the maximum width */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Reduce the shadow effect */
+  border-radius: 10px; /* Add some border radius for a smoother appearance */
+  display: flex; /* Use flexbox for positioning */
+  flex-direction: column; /* Arrange elements in a column */
+  justify-content: space-between; /* Align elements with space between them */
+  height: 100%; /* Make the box take full height of the container */
+}
+
+.select-files {
+  cursor: pointer;
+  margin-bottom: 2rem; /* Add margin to create a gap between elements */
+}
+
+button {
+  margin: 1rem auto 0; /* Adjust the margin to center the button at the bottom */
+  width: 8rem; /* Reduce the width of the button */
+  padding: 0.5rem; /* Add some padding for the button */
+}
+
+p {
+  margin-top: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
